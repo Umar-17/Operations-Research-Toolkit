@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Operations Research Methods Toolkit - Simplex, Transportation, Hungarian, TSP, and more">
+    <title>OR Toolkit</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <script src="js/common.js"></script>
+    <script>injectNavbar('home'); loadTheme();</script>
+
+    <div class="main-container">
+        <header class="page-header-home">
+            <h1>Operations Research Toolkit</h1>
+            <p class="intro-text">
+                OR Toolkit is a modern web platform for solving optimization problems using Operations Research
+                techniques.
+                It helps users model constraints, analyze trade-offs, and compute optimal solutions with clarity
+                regarding
+                learning, experimentation, and informed decision-making.
+            </p>
+        </header>
+
+        <div class="divider"></div>
+
+        <div class="methods-grid">
+            <!-- Simplex Method -->
+            <a href="methods/simplex/index.html" class="method-card" data-method-id="simplex">
+                <div class="icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAF0E6"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18" />
+                        <path d="M18 9l-5 5-4-4-3 3" />
+                    </svg></div>
+                <h3>Simplex Method</h3>
+                <p>Solve Linear Programming problems using the Simplex algorithm with Big-M method and sensitivity
+                    analysis.</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <!-- Transportation Problem -->
+            <a href="methods/transportation/index.html" class="method-card" data-method-id="transportation">
+                <div class="icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAF0E6"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="1" y="3" width="15" height="13" rx="2" />
+                        <path d="M16 8h4l3 3v5h-7V8z" />
+                        <circle cx="5.5" cy="18.5" r="2.5" />
+                        <circle cx="18.5" cy="18.5" r="2.5" />
+                    </svg></div>
+                <h3>Transportation Problem</h3>
+                <p>Find optimal shipping routes using NWC, Least Cost, or Vogel's Approximation methods with MODI
+                    optimization.</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <!-- Hungarian Method -->
+            <a href="methods/hungarian/index.html" class="method-card" data-method-id="hungarian">
+                <div class="icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAF0E6"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="12" r="6" />
+                        <circle cx="12" cy="12" r="2" />
+                    </svg></div>
+                <h3>Hungarian Method</h3>
+                <p>Solve assignment problems to optimally assign workers to jobs with step-by-step visualization.</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <!-- Branch and Bound -->
+            <a href="methods/branch-and-bound/index.html" class="method-card" data-method-id="branch-and-bound">
+                <div class="icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAF0E6"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="5" r="3" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="12" x2="6" y2="18" />
+                        <line x1="12" y1="12" x2="18" y2="18" />
+                        <circle cx="6" cy="19" r="2" />
+                        <circle cx="18" cy="19" r="2" />
+                    </svg></div>
+                <h3>Branch and Bound</h3>
+                <p>Solve Integer Linear Programming problems with visual branch and bound tree exploration.</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <!-- TSP -->
+            <a href="methods/tsp/index.html" class="method-card" data-method-id="tsp">
+                <div class="icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAF0E6"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M2 12h20" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg></div>
+                <h3>Traveling Salesman</h3>
+                <p>Find the shortest route visiting all cities exactly once and returning to the starting point.</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <!-- Shortest Route -->
+            <a href="methods/shortest-route/index.html" class="method-card" data-method-id="shortest-route">
+                <div class="icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAF0E6"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="5" cy="6" r="3" />
+                        <circle cx="19" cy="18" r="3" />
+                        <path d="M8 6h8l-8 12h8" />
+                    </svg></div>
+                <h3>Shortest Route</h3>
+                <p>Find shortest path between nodes using Bellman-Ford dynamic programming approach.</p>
+                <span class="arrow">→</span>
+            </a>
+
+            <!-- Knapsack -->
+            <a href="methods/knapsack/index.html" class="method-card" data-method-id="knapsack">
+                <div class="icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FAF0E6"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg></div>
+                <h3>0/1 Knapsack</h3>
+                <p>Maximize value while respecting capacity constraints using dynamic programming with backtracking.</p>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <script>injectFooter();</script>
+
+    <script>
+        // Handle nav search - filter on homepage (Overrides common.js redirect)
+        function handleNavSearch(event) {
+            if (event.key === 'Enter') {
+                const query = event.target.value.trim();
+                filterMethods(query);
+            } else {
+                filterMethods(event.target.value);
+            }
+        }
+
+        // Filter methods based on search input
+        function filterMethods(query) {
+            const cards = document.querySelectorAll('.method-card');
+            const normalizedQuery = query.toLowerCase().trim();
+
+            if (!normalizedQuery) {
+                cards.forEach(card => card.style.display = 'block');
+                return;
+            }
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                const matches = title.includes(normalizedQuery) || desc.includes(normalizedQuery);
+                card.style.display = matches ? 'block' : 'none';
+            });
+        }
+
+        // Check for search query in URL
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+            if (searchQuery) {
+                // Wait for input to be injected? injectNavbar runs synchronously.
+                const searchInput = document.getElementById('navSearchInput');
+                if (searchInput) {
+                    searchInput.value = searchQuery;
+                    document.getElementById('searchContainer').classList.add('expanded');
+                    filterMethods(searchQuery);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

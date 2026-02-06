@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - OR Methods Toolkit</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="navbar-brand">
+            <span>OR Toolkit</span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="nav-link">
+                <span>Home</span>
+            </a>
+            <div class="methods-dropdown">
+                <button class="methods-dropdown-btn">
+                    <span>Methods</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="methods-dropdown-content">
+                    <a href="methods/simplex/index.html">Simplex Method</a>
+                    <a href="methods/transportation/index.html">Transportation Problem</a>
+                    <a href="methods/hungarian/index.html">Hungarian Method</a>
+                    <a href="methods/branch-and-bound/index.html">Branch and Bound</a>
+                    <a href="methods/tsp/index.html">Traveling Salesman</a>
+                    <a href="methods/shortest-route/index.html">Shortest Route</a>
+                    <a href="methods/knapsack/index.html">0/1 Knapsack</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link active">
+                <span>About</span>
+            </a>
+            <div class="search-container" id="searchContainer">
+                <div class="search-input-wrapper">
+                    <input type="text" id="navSearchInput" placeholder="Search methods..."
+                        onkeyup="handleNavSearch(event)">
+                </div>
+                <button class="search-icon-btn" onclick="toggleSearch()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <header class="page-header" style="margin-top: -40px;">
+            <h1>About</h1>
+            <p class="subtitle">Operations Research Methods Toolkit</p>
+        </header>
+
+        <div class="card"
+            style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
+            <h2>About OR Toolkit</h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
+                OR Toolkit is a web-based Operations Research solver designed to help students, educators, and analysts
+                solve optimization problems efficiently.
+            </p>
+
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-top: 20px;">
+                The platform supports a range of core Operations Research techniques, including Linear Programming,
+                Integer Programming, Simplex Method, Transportation and Assignment models, as well as Dynamic
+                Programming approaches such as Shortest Path and Knapsack problems.
+            </p>
+
+            <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-top: 20px;">
+                OR Toolkit emphasizes clarity, usability, and educational value, allowing users to focus on problem
+                formulation and interpretation of results.
+            </p>
+
+
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: var(--light); margin-bottom: 15px;">Tips</h3>
+                <div class="method-description">
+                    <p>
+                        <strong>Decimal Values:</strong> All methods support decimal input values (e.g., 2.5,
+                        3.14).<br><br>
+                        <strong>Empty Cells:</strong> Use <code>-</code> (dash) to represent empty, null, or infinity
+                        values in matrix inputs.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3 style="color: var(--light); margin-bottom: 15px;">⚠️ Disclaimer</h3>
+                <div class="method-description">
+                    <p>
+                        OR Toolkit is intended for educational and analytical purposes. Users are advised to verify
+                        results before applying them in real-world scenarios.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 40px; padding: 25px; background: rgba(255, 255, 255, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                <h2 style="color: var(--light); margin-bottom: 10px; font-size: 1.5rem;">About Me</h2>
+                <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7;">
+                    A Computer Science student interested in building useful and well-designed software applications.
+                </p>
+            </div>
+        </div>
+
+
+    </main>
+
+    <div class="divider" style="margin-bottom: 30px;"></div>
+
+    <footer class="footer">
+        <p>OR Toolkit © 2025</p>
+        <p style="font-size: 0.8rem; margin-top: 5px;">Educational use only. Verify results before real-world
+            application.</p>
+    </footer>
+
+    <script src="js/common.js"></script>
+    <script>
+        function toggleSearch() {
+            const container = document.getElementById('searchContainer');
+            container.classList.toggle('expanded');
+            if (container.classList.contains('expanded')) {
+                document.getElementById('navSearchInput').focus();
+            }
+        }
+
+        function handleNavSearch(event) {
+            if (event.key === 'Enter') {
+                const query = event.target.value.trim();
+                if (query) {
+                    window.location.href = `index.html?search=${encodeURIComponent(query)}`;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
