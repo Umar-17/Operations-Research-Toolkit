@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branch and Bound - OR Toolkit</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar will be injected by common.js -->
+
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Branch and Bound</h1>
+            <p class="subtitle">Integer Linear Programming Solver</p>
+        </header>
+
+        <!-- Method Description -->
+        <div class="card method-description">
+            <h3>About This Method</h3>
+            <p>
+                The Branch and Bound algorithm solves Integer Linear Programming (ILP) problems by systematically
+                exploring the solution space. It branches on fractional variables and bounds using LP relaxation
+                to prune suboptimal solutions.
+            </p>
+            <p class="note">
+                💡 <strong>Tip:</strong> Supports decimal coefficients. Use <code>-</code> for empty values.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Problem Configuration</h2>
+
+            <div class="input-group">
+                <div class="input-field">
+                    <label>Number of Variables</label>
+                    <input type="number" id="numVars" value="2" min="1" max="6">
+                </div>
+                <div class="input-field">
+                    <label>Number of Constraints</label>
+                    <input type="number" id="numConstraints" value="2" min="1" max="6">
+                </div>
+                <button class="btn btn-primary" onclick="generateInputs()">Generate Inputs</button>
+            </div>
+        </div>
+
+        <div class="card" id="problemCard">
+            <h2>Problem Definition</h2>
+
+            <div class="section">
+                <h3>Objective Function</h3>
+                <div class="objective-row">
+                    <select id="objectiveType" class="obj-select">
+                        <option value="max">Maximize</option>
+                        <option value="min">Minimize</option>
+                    </select>
+                    <span class="obj-label">Z =</span>
+                    <div id="objectiveInputs" class="objective-inputs"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Subject to Constraints</h3>
+                <div id="constraintsContainer"></div>
+            </div>
+
+            <div class="section">
+                <h3>Integer Requirements</h3>
+                <div id="integerVarsContainer"></div>
+            </div>
+
+            <div class="section non-negativity">
+                <p>All variables ≥ 0</p>
+            </div>
+
+            <div class="solve-section">
+                <button class="btn btn-solve" onclick="solve()">SOLVE</button>
+            </div>
+        </div>
+
+        <div class="card result-card hidden" id="resultsCard">
+            <h2>Branch and Bound Tree</h2>
+
+            <div id="treeContainer"></div>
+            <div class="final-result" id="finalResult"></div>
+        </div>
+    </div>
+
+    <script src="../../js/common.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

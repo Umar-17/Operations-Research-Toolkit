@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungarian Method - OR Toolkit</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar will be injected by common.js -->
+
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Hungarian Method</h1>
+            <p class="subtitle">Assignment Problem Solver</p>
+        </header>
+
+        <!-- Method Description -->
+        <div class="card method-description">
+            <h3>About This Method</h3>
+            <p>
+                The Hungarian Method (Kuhn-Munkres algorithm) solves assignment problems to optimally match
+                workers to jobs, minimizing total cost or maximizing total profit. It uses row/column reduction
+                and line covering to find the optimal assignment.
+            </p>
+            <p class="note">
+                💡 <strong>Tip:</strong> Supports decimal values. Use <code>-</code> for prohibited assignments (treated
+                as very high cost).
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Problem Configuration</h2>
+
+            <div class="problem-type">
+                <label class="radio-option">
+                    <input type="radio" name="problemType" value="min" checked>
+                    <span>Minimization (Cost)</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="problemType" value="max">
+                    <span>Maximization (Profit)</span>
+                </label>
+            </div>
+
+            <div class="input-group">
+                <div class="input-field">
+                    <label>Number of Rows</label>
+                    <input type="number" id="numWorkers" value="4" min="1" max="10">
+                </div>
+                <div class="input-field">
+                    <label>Number of Columns</label>
+                    <input type="number" id="numJobs" value="4" min="1" max="10">
+                </div>
+                <button class="btn btn-primary" onclick="generateMatrix()">Generate Matrix</button>
+            </div>
+        </div>
+
+        <div class="card" id="matrixCard">
+            <h2>Cost/Profit Matrix</h2>
+            <div id="balanceWarning" class="warning-box hidden">
+                <p id="balanceMessage"></p>
+            </div>
+
+            <div id="namesSection" class="names-section hidden">
+                <div class="names-group">
+                    <label>Row Names:</label>
+                    <div id="rowNamesContainer" class="names-container"></div>
+                </div>
+                <div class="names-group">
+                    <label>Column Names:</label>
+                    <div id="colNamesContainer" class="names-container"></div>
+                </div>
+            </div>
+
+            <div class="matrix-container" id="matrixInput"></div>
+
+            <div class="solve-section">
+                <button class="btn btn-solve" onclick="solve()">SOLVE</button>
+            </div>
+        </div>
+
+        <div class="card result-card hidden" id="resultsCard">
+            <h2>Solution Steps</h2>
+
+            <div id="stepsContainer"></div>
+            <div class="final-result" id="finalResult"></div>
+        </div>
+    </div>
+
+    <script src="../../js/common.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

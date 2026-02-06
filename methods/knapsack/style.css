@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Inherit body styles from common.css */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Inherit h1 styles from common.css */
+
+.subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Inherit card styles from common.css */
+
+.card h2 {
+    color: var(--accent-secondary);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Knapsack Specific Styles - Minimalist */
+
+.knapsack-type {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition-fast);
+}
+
+.radio-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.radio-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--viz-purple);
+}
+
+.radio-option span {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.type-description {
+    background: rgba(251, 191, 36, 0.1);
+    padding: 15px;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 25px;
+    color: var(--viz-warning);
+    font-size: 0.95rem;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.input-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-field label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.input-field input {
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-sm);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+    font-size: 1rem;
+    width: 160px;
+    transition: var(--transition-fast);
+}
+
+.input-field input:focus {
+    border-color: var(--viz-purple);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 25px 0;
+}
+
+.items-table th {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.items-table td {
+    padding: 12px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.01);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.items-table input {
+    width: 80px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-sm);
+    background: rgba(0, 0, 0, 0.15);
+    color: var(--text-primary);
+    font-size: 1rem;
+    text-align: center;
+    transition: var(--transition-fast);
+}
+
+.items-table input:focus {
+    background: rgba(0, 0, 0, 0.25);
+    border-color: var(--viz-purple);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+.items-table input.name-input {
+    width: 120px;
+}
+
+.items-table input.qty-input {
+    width: 70px;
+    border-color: rgba(96, 165, 250, 0.3);
+}
+
+.items-table input.qty-input:focus {
+    border-color: var(--viz-info);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.item-number {
+    background: rgba(168, 85, 247, 0.15);
+    color: var(--viz-purple);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.result-card {
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.05), rgba(96, 165, 250, 0.05));
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step-container {
+    margin: 20px 0;
+    padding: 25px;
+    background: var(--glass-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--glass-border);
+    border-left: 4px solid var(--viz-purple);
+    overflow-x: auto;
+}
+
+.step-title {
+    color: var(--light);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+}
+
+.dp-table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.dp-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+.dp-table th {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 15px;
+    color: var(--viz-purple);
+    font-weight: 600;
+    min-width: 45px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dp-table td {
+    background: rgba(255, 255, 255, 0.01);
+    padding: 10px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    min-width: 45px;
+}
+
+.dp-table td.current-row {
+    background: rgba(230, 200, 100, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(212, 185, 78, 0.4);
+}
+
+.dp-table td.current-cell {
+    background: rgba(168, 85, 247, 0.15);
+    color: var(--viz-purple);
+    font-weight: 600;
+    box-shadow: inset 0 0 0 1px rgba(168, 85, 247, 0.3);
+}
+
+.dp-table td.path-cell {
+    background: rgba(74, 222, 128, 0.15);
+    color: var(--viz-success);
+    font-weight: 600;
+    box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.3);
+}
+
+.dp-table td.used-cell {
+    background: rgba(74, 222, 128, 0.05);
+    color: var(--viz-success);
+}
+
+.dp-table .row-header {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--viz-purple);
+    font-weight: 600;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dp-table td.cell-selected {
+    background: rgba(74, 144, 226, 0.25);
+    color: #4a90e2;
+    font-weight: 600;
+    box-shadow: inset 0 0 0 2px rgba(74, 144, 226, 0.5);
+}
+
+.dp-table td.cell-not-selected {
+    background: rgba(196, 122, 122, 0.2);
+    color: #c47a7a;
+    box-shadow: inset 0 0 0 2px rgba(196, 122, 122, 0.4);
+}
+
+.dp-table td.optimal-value {
+    background: rgba(168, 85, 247, 0.25);
+    color: #a855f7;
+    font-weight: 700;
+    box-shadow: inset 0 0 0 2px rgba(168, 85, 247, 0.5);
+}
+
+.formula-box {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: var(--border-radius-sm);
+    margin: 15px 0;
+    font-family: 'Fira Code', monospace;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.formula-box code {
+    color: var(--viz-purple);
+}
+
+.final-result {
+    text-align: center;
+    padding: 35px;
+    background: var(--glass-bg);
+    border-radius: var(--border-radius);
+    margin-top: 30px;
+    border: 1px solid rgba(74, 222, 128, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.final-result h3 {
+    color: #DADD98;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    letter-spacing: -0.02em;
+}
+
+.selected-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.selected-item {
+    background: rgba(168, 85, 247, 0.1);
+    padding: 15px 25px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    min-width: 120px;
+}
+
+.selected-item .item-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--viz-purple);
+}
+
+.selected-item .item-details {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.total-values {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.total-box {
+    text-align: center;
+}
+
+.total-box .label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.total-box .value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--viz-success);
+    letter-spacing: -0.02em;
+}
+
+.total-box .value.weight {
+    color: var(--viz-warning);
+}
+
+.backtrack-step {
+    background: rgba(0, 255, 136, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-field input {
+        width: 100%;
+    }
+
+    .total-values {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .knapsack-type {
+        flex-direction: column;
+    }
+}

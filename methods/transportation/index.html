@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Problem - OR Toolkit</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar will be injected by common.js -->
+
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Transportation Problem</h1>
+            <p class="subtitle">Optimal Distribution Solver</p>
+        </header>
+
+        <!-- Method Description -->
+        <div class="card method-description">
+            <h3>About This Method</h3>
+            <p>
+                The Transportation Problem finds the optimal way to distribute goods from sources to destinations
+                while minimizing transportation cost. Solve using North-West Corner, Least Cost, or Vogel's
+                Approximation methods, then optimize with MODI (Modified Distribution Method).
+            </p>
+            <p class="note">
+                💡 <strong>Tip:</strong> Supports decimal costs. Use <code>-</code> for prohibited routes (treated as
+                very high cost).
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Problem Configuration</h2>
+            <div class="input-group">
+                <div class="input-field">
+                    <label>Number of Sources</label>
+                    <input type="number" id="numSources" value="3" min="2" max="10">
+                </div>
+                <div class="input-field">
+                    <label>Number of Destinations</label>
+                    <input type="number" id="numDestinations" value="4" min="2" max="10">
+                </div>
+                <button class="btn btn-primary" onclick="generateMatrix()">Generate Matrix</button>
+            </div>
+        </div>
+
+        <div class="card" id="matrixCard">
+            <h2>Cost Matrix</h2>
+            <div id="balanceWarning" class="warning-box hidden">
+                <p id="balanceMessage"></p>
+            </div>
+
+            <div id="namesSection" class="names-section hidden">
+                <div class="names-group">
+                    <label>Source Names:</label>
+                    <div id="sourceNamesContainer" class="names-container"></div>
+                </div>
+                <div class="names-group">
+                    <label>Destination Names:</label>
+                    <div id="destNamesContainer" class="names-container"></div>
+                </div>
+            </div>
+
+            <div class="matrix-container" id="matrixInput"></div>
+
+            <div class="method-selection">
+                <h3>Initial Solution Method</h3>
+                <div class="problem-type">
+                    <label class="radio-option">
+                        <input type="radio" name="method" value="nwc" checked>
+                        <span>North-West Corner</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="method" value="lcm">
+                        <span>Least Cost Method</span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="method" value="vam">
+                        <span>Vogel's Approximation</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="solve-section">
+                <button class="btn btn-solve" onclick="solve()">SOLVE</button>
+            </div>
+        </div>
+
+        <div class="card result-card hidden" id="resultsCard">
+            <h2>Solution Steps</h2>
+
+            <div id="stepsContainer"></div>
+            <div class="final-result" id="finalResult"></div>
+        </div>
+    </div>
+
+    <script src="../../js/common.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

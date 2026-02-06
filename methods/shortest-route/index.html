@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shortest Route - OR Toolkit</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar will be injected by common.js -->
+
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Shortest Route</h1>
+            <p class="subtitle">Bellman-Ford Dynamic Programming</p>
+        </header>
+
+        <!-- Method Description -->
+        <div class="card method-description">
+            <h3>About This Method</h3>
+            <p>
+                The Shortest Route problem finds the minimum cost path from a source node to a destination
+                using Bellman-Ford's dynamic programming approach. The algorithm iteratively relaxes edges
+                until no further improvements are possible.
+            </p>
+            <p class="note">
+                💡 <strong>Tip:</strong> Supports decimal edge weights. Use <code>-</code> or <code>∞</code> for no
+                direct connection. Use <code>0</code> for self-loops (diagonal).
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Problem Configuration</h2>
+            <div class="input-group">
+                <div class="input-field">
+                    <label>Number of Nodes</label>
+                    <input type="number" id="numNodes" value="5" min="3" max="12">
+                </div>
+                <button class="btn btn-primary" onclick="generateMatrix()">Generate Matrix</button>
+            </div>
+        </div>
+
+        <div class="card" id="matrixCard">
+            <h2>Distance Matrix</h2>
+
+            <div id="namesSection" class="names-section hidden">
+                <div class="names-group">
+                    <label>Node Names:</label>
+                    <div id="nodeNamesContainer" class="names-container"></div>
+                </div>
+            </div>
+
+            <div class="matrix-container" id="matrixInput"></div>
+
+            <div class="input-group" style="margin-top: 20px;">
+                <div class="input-field">
+                    <label>Source Node</label>
+                    <select id="sourceNode"></select>
+                </div>
+                <div class="input-field">
+                    <label>Destination Node</label>
+                    <select id="destNode"></select>
+                </div>
+            </div>
+
+            <div class="solve-section">
+                <button class="btn btn-solve" onclick="solve()">SOLVE</button>
+            </div>
+        </div>
+
+        <div class="card result-card hidden" id="resultsCard">
+            <h2>Solution Steps</h2>
+
+            <div id="stepsContainer"></div>
+            <div class="final-result" id="finalResult"></div>
+        </div>
+    </div>
+
+    <script src="../../js/common.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

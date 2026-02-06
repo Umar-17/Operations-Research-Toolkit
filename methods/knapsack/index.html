@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0/1 Knapsack Problem - OR Toolkit</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar will be injected by common.js -->
+
+    <div class="main-container">
+        <header class="page-header">
+            <h1>Knapsack Problem</h1>
+            <p class="subtitle">Dynamic Programming Item Selection</p>
+        </header>
+
+        <!-- Method Description -->
+        <div class="card method-description">
+            <h3>About This Method</h3>
+            <p>
+                The Knapsack Problem maximizes value while respecting capacity constraints. Using dynamic
+                programming, it builds a table of optimal solutions for each item and capacity combination,
+                then backtracks to find the selected items.
+            </p>
+            <p class="note">
+                💡 <strong>Tip:</strong> Supports decimal weights and values. Choose between 0/1, Unbounded, or Bounded
+                variants.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Problem Configuration</h2>
+
+            <div class="problem-type">
+                <label class="radio-option">
+                    <input type="radio" name="knapsackType" value="01" checked onclick="updateInputs()">
+                    <span>0/1 Knapsack</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="knapsackType" value="unbounded" onclick="updateInputs()">
+                    <span>Unbounded</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="knapsackType" value="bounded" onclick="updateInputs()">
+                    <span>Bounded</span>
+                </label>
+            </div>
+
+            <div class="input-group">
+                <div class="input-field">
+                    <label>Number of Items</label>
+                    <input type="number" id="numItems" value="4" min="1" max="10">
+                </div>
+                <div class="input-field">
+                    <label>Knapsack Capacity (W)</label>
+                    <input type="number" id="capacity" value="10" min="1" max="50">
+                </div>
+                <button class="btn btn-primary" onclick="generateInputs()">Generate Items</button>
+            </div>
+        </div>
+
+        <div class="card" id="itemsCard">
+            <h2>Items</h2>
+            <div id="itemsContainer"></div>
+
+            <div class="solve-section">
+                <button class="btn btn-solve" onclick="solve()">SOLVE</button>
+            </div>
+        </div>
+
+        <div class="card result-card hidden" id="resultsCard">
+            <h2>Solution Steps</h2>
+
+            <div id="stepsContainer"></div>
+            <div class="final-result" id="finalResult"></div>
+        </div>
+    </div>
+
+    <script src="../../js/common.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
