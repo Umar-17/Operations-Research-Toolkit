@@ -1,9 +1,4 @@
-/* ==========================================
-   OR Methods Toolkit - Common JavaScript
-   Navbar, Footer, Search, Input Validation
-   ========================================== */
 
-// Method data for search and cards
 const methodsData = [
     {
         id: 'simplex',
@@ -63,11 +58,7 @@ const methodsData = [
     }
 ];
 
-/**
- * Get base path for resources based on current page location.
- * Handles both root pages and nested method pages.
- * @returns {string} The relative path prefix ('../../' for methods, './' for root)
- */
+
 function getBasePath() {
     const path = window.location.pathname;
     if (path.includes('/methods/')) {
@@ -76,11 +67,7 @@ function getBasePath() {
     return './';
 }
 
-/**
- * Dynamically inject the navigation bar into the page.
- * Creates navbar with links, dropdown menu, search, and theme toggle.
- * @param {string} activePage - Current active page ('home', 'about', 'methods')
- */
+
 function injectNavbar(activePage = 'home') {
     const basePath = getBasePath();
     const navbar = document.createElement('nav');
@@ -126,33 +113,24 @@ function injectNavbar(activePage = 'home') {
     `;
     document.body.insertBefore(navbar, document.body.firstChild);
 
-    // Create Floating Theme Toggle
+
     createThemeButton();
 }
 
-/**
- * Toggle between light and dark theme modes.
- * Saves preference to localStorage for persistence.
- */
+
 function toggleTheme() {
     document.body.classList.toggle('light-mode');
     localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
 }
 
-/**
- * Load saved theme preference from localStorage.
- * Applies light mode if previously selected.
- */
+
 function loadTheme() {
     if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-mode');
     }
 }
 
-/**
- * Toggle the search input field visibility.
- * Expands search box and focuses input when opened.
- */
+
 function toggleSearch() {
     const container = document.getElementById('searchContainer');
     container.classList.toggle('expanded');
@@ -161,12 +139,9 @@ function toggleSearch() {
     }
 }
 
-/**
- * Dynamically inject the footer into the page.
- * Includes copyright and disclaimer text.
- */
+
 function injectFooter() {
-    // Inject divider before footer
+
     const divider = document.createElement('div');
     divider.className = 'divider';
     divider.style.marginBottom = '30px';
@@ -182,18 +157,14 @@ function injectFooter() {
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg>
             <a href="https://github.com/Umar-17/Operations-Research-Toolkit" target="_blank" style="color: #93B1A6; text-decoration: underline; font-size: 0.9rem; font-weight: 500;">
-                View source on github
+                View source on GitHub
             </a>
         </p>
     `;
     document.body.appendChild(footer);
 }
 
-/**
- * Handle search input from navigation bar.
- * Redirects to homepage with search query on Enter key.
- * @param {KeyboardEvent} event - The keyboard event
- */
+
 function handleNavSearch(event) {
     if (event.key === 'Enter') {
         const query = event.target.value.trim();
@@ -204,11 +175,7 @@ function handleNavSearch(event) {
     }
 }
 
-/**
- * Filter method cards on the homepage based on search query.
- * Matches against method name, description, and keywords.
- * @param {string} query - The search query string
- */
+
 function filterMethods(query) {
     const cards = document.querySelectorAll('.method-card');
     const normalizedQuery = query.toLowerCase().trim();
@@ -230,42 +197,30 @@ function filterMethods(query) {
     });
 }
 
-// ==========================================
-// Input Validation Helpers
-// ==========================================
 
-/**
- * Parse a value that can be a number, decimal, or "-" for null/infinity
- * @param {string} value - The input value
- * @param {number} defaultValue - Default value if parsing fails
- * @param {boolean} allowInfinity - Whether "-" should be treated as Infinity
- * @returns {number} Parsed number or default/Infinity
- */
+
+
 function parseInputValue(value, defaultValue = 0, allowInfinity = true) {
     if (value === null || value === undefined) return defaultValue;
 
     const trimmed = String(value).trim();
 
-    // Handle null/empty/infinity cases
+
     if (trimmed === '' || trimmed === '-' || trimmed === '∞' || trimmed.toLowerCase() === 'inf') {
         return allowInfinity ? Infinity : defaultValue;
     }
 
-    // Parse as float to support decimals
+
     const num = parseFloat(trimmed);
     return isNaN(num) ? defaultValue : num;
 }
 
-/**
- * Validate and parse matrix input, supporting decimals and "-" for empty
- * @param {string} value - The input value
- * @returns {number|null} Parsed number or null for empty
- */
+
 function parseMatrixCell(value) {
     const trimmed = String(value).trim();
 
     if (trimmed === '' || trimmed === '-') {
-        return null; // Will be treated as Infinity or 0 depending on context
+        return null;
     }
 
     if (trimmed === '∞' || trimmed.toLowerCase() === 'inf') {
@@ -276,29 +231,19 @@ function parseMatrixCell(value) {
     return isNaN(num) ? null : num;
 }
 
-/**
- * Format a number for display, handling Infinity
- * @param {number} value - The number to format
- * @param {number} decimals - Decimal places (default 4)
- * @returns {string} Formatted string
- */
+
 function formatNumber(value, decimals = 4) {
     if (value === Infinity || value === -Infinity) return '∞';
     if (value === null || value === undefined || isNaN(value)) return '-';
 
-    // Round to specified decimals
+
     const rounded = Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals);
 
-    // Remove trailing zeros
+
     return String(rounded);
 }
 
-/**
- * Create an input validation message element
- * @param {string} message - Error message
- * @param {string} type - 'error', 'warning', 'info'
- * @returns {HTMLElement} The message element
- */
+
 function createValidationMessage(message, type = 'error') {
     const div = document.createElement('div');
     div.className = `validation-message validation-${type}`;
@@ -325,16 +270,12 @@ function createValidationMessage(message, type = 'error') {
     return div;
 }
 
-/**
- * Show error message to user
- * @param {string} message - Error message
- * @param {string} containerId - Optional container ID to show error in
- */
+
 function showError(message, containerId = null) {
     if (containerId) {
         const container = document.getElementById(containerId);
         if (container) {
-            // Remove existing errors
+
             container.querySelectorAll('.validation-message').forEach(el => el.remove());
             container.insertBefore(createValidationMessage(message, 'error'), container.firstChild);
             return;
@@ -343,15 +284,9 @@ function showError(message, containerId = null) {
     alert(message);
 }
 
-// ==========================================
-// Legend Component
-// ==========================================
 
-/**
- * Create a legend HTML string
- * @param {Array} items - Array of {emoji, label, colorClass?} objects
- * @returns {string} Legend HTML
- */
+
+
 function createLegend(items) {
     return `
         <div class="legend">
@@ -366,30 +301,28 @@ function createLegend(items) {
     `;
 }
 
-// ==========================================
-// Initialize on DOM Load
-// ==========================================
+
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Load saved theme preference
+
     loadTheme();
 
-    // Check if we're on the main page (should already have navbar) or a method page
+
     const existingNavbar = document.querySelector('.navbar');
     const isMethodPage = window.location.pathname.includes('/methods/');
 
-    // Inject navbar if it doesn't exist and we're on a method page
+
     if (!existingNavbar && isMethodPage) {
         injectNavbar('methods');
         injectFooter();
     } else {
-        // Ensure theme button exists even if navbar wasn't injected (e.g., home/about pages)
+
         if (!document.querySelector('.floating-theme-btn')) {
             createThemeButton();
         }
     }
 
-    // Handle search query from URL on homepage
+
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('search');
     if (searchQuery) {
@@ -399,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Inject Favicon
+
     const link = document.createElement('link');
     link.rel = 'icon';
     link.href = `${getBasePath()}favicon.svg`;
@@ -407,10 +340,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.head.appendChild(link);
 });
 
-/**
- * Create and append the floating theme toggle button.
- * Button allows users to switch between light and dark modes.
- */
+
 function createThemeButton() {
     const themeBtn = document.createElement('button');
     themeBtn.className = 'theme-toggle-btn floating-theme-btn';
@@ -427,7 +357,7 @@ function createThemeButton() {
     document.body.appendChild(themeBtn);
 }
 
-// Export for use in other scripts
+
 if (typeof window !== 'undefined') {
     window.ORToolkit = {
         parseInputValue,
